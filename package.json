@@ -11,6 +11,8 @@
   "dependencies": {
     "@discordjs/builders": "^1.6.5",
     "@discordjs/rest": "^2.0.0",
+    "axios": "^1.5.1",
+    "cheerio": "^1.0.0-rc.12",
     "discord-api-types": "^0.37.61",
     "discord.js": "^14.12.1",
     "node-fetch": "^3.3.2",

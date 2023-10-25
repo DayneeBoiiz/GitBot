@@ -6,6 +6,37 @@ const { token, clientId, guildId } = require("./config/config.json");
 const fs = require("node:fs");
 const path = require("node:path");
 
+const tempCommands = [
+  {
+    name: "ping",
+    description: "Replies with Pong!",
+  },
+  {
+    name: "server",
+    description: "Replies with server info.",
+  },
+  {
+    name: "user",
+    description: "Replies with user info.",
+  },
+  {
+    name: "trending",
+    description: "Replies with trending Repos on Github.",
+  },
+  {
+    name: "viewrepo",
+    description: "View information about a GitHub repository",
+    options: [
+      {
+        name: "repository",
+        description: "GitHub repository name",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+];
+
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.commands = new Collection();
@@ -30,7 +61,7 @@ const rest = new REST({ version: "10" }).setToken(token);
     console.log("Started refreshing application (/) commands.");
 
     await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
-      body: commands,
+      body: tempCommands,
     });
 
     console.log("Successfully reloaded application (/) commands.");
