@@ -40,6 +40,58 @@ const tempCommands = [
       },
     ],
   },
+  {
+    name: "userinfo",
+    description: "Display information about a GitHub user",
+    options: [
+      {
+        name: "username",
+        description: "GitHub username",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "createissue",
+    description: "Create a new issue in a GitHub repository",
+    options: [
+      {
+        name: "repository",
+        description: "GitHub repository name",
+        type: 3,
+        required: true,
+      },
+      {
+        name: "title",
+        description: "Issue title",
+        type: 3,
+        required: true,
+      },
+      {
+        name: "description",
+        description: "Issue description",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "userrepos",
+    description: "List repositories owned by a GitHub user",
+    options: [
+      {
+        name: "username",
+        description: "GitHub username",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "help",
+    description: "Displays a comprehensive list of available commands",
+  },
 ];
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });

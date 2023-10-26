@@ -16,7 +16,6 @@ module.exports = {
 
         $(".Box-row").each((index, element) => {
           if (index < 5) {
-            // Display only the first five repositories
             const repoName = $(element).find("h1 a").text().trim();
             const repoDescription = $(element).find("p").text().trim();
             const repoURL = `https://github.com${$(element)
@@ -30,19 +29,24 @@ module.exports = {
         });
 
         if (trendingRepos.length === 0) {
-          await interaction.reply("No trending repositories found.");
+          await interaction.reply("No trending repositories found.", {
+            ephemeral: true,
+          });
         } else {
           const message = trendingRepos.join("\n");
 
-          await interaction.reply(message);
+          await interaction.reply(message, { ephemeral: true });
         }
       } else {
-        await interaction.reply("Failed to fetch trending repositories.");
+        await interaction.reply("Failed to fetch trending repositories.", {
+          ephemeral: true,
+        });
       }
     } catch (error) {
       console.error(error);
       await interaction.reply(
-        "An error occurred while fetching trending repositories."
+        "An error occurred while fetching trending repositories.",
+        { ephemeral: true }
       );
     }
   },

@@ -29,7 +29,8 @@ module.exports = {
 
         if (issues.length === 0) {
           await interaction.reply(
-            "No issues found with the specified keyword."
+            "No issues found with the specified keyword.",
+            { ephemeral: true }
           );
         } else {
           const issueList = issues
@@ -42,17 +43,21 @@ module.exports = {
           const responseChunks = splitText(issueList, 1950);
 
           for (const chunk of responseChunks) {
-            await interaction.followUp(chunk);
+            await interaction.followUp(chunk, { ephemeral: true });
           }
         }
       } else {
         await interaction.reply(
-          "Failed to fetch issues from the GitHub repository."
+          "Failed to fetch issues from the GitHub repository.",
+          {
+            ephemeral: true,
+          }
         );
       }
     } catch (error) {
-      console.error(error.message);
-      await interaction.reply("An error occurred while searching for issues.");
+      await interaction.reply("An error occurred while searching for issues.", {
+        ephemeral: true,
+      });
     }
   },
 };

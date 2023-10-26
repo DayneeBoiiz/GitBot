@@ -3,6 +3,7 @@ const { SlashCommandBuilder } = require("discord.js");
 const { GITHUB_API_TOKEN } = require("../config/config.json");
 
 async function getRepositoryInfo(repositoryName) {
+  // eslint-disable-next-line no-useless-catch
   try {
     const response = await fetch(
       `https://api.github.com/repos/${repositoryName}`,
@@ -44,7 +45,6 @@ async function getRepositoryInfo(repositoryName) {
       );
     }
   } catch (error) {
-    console.error(error.message);
     throw error;
   }
 }
@@ -74,10 +74,11 @@ module.exports = {
         ", "
       )}`;
 
-      await interaction.reply(message);
+      await interaction.reply(message, { ephemeral: true });
     } catch (error) {
       await interaction.reply(
-        `Failed to fetch repository information: ${error.message}`
+        `Failed to fetch repository information: ${error.message}`,
+        { ephemeral: true }
       );
     }
   },
