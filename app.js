@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
@@ -7,18 +6,6 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const tempCommands = [
-  {
-    name: "ping",
-    description: "Replies with Pong!",
-  },
-  {
-    name: "server",
-    description: "Replies with server info.",
-  },
-  {
-    name: "user",
-    description: "Replies with user info.",
-  },
   {
     name: "trending",
     description: "Replies with trending Repos on Github.",
@@ -30,6 +17,24 @@ const tempCommands = [
       {
         name: "repository",
         description: "GitHub repository name",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "searchissues",
+    description: "Search for issues in a GitHub repository",
+    options: [
+      {
+        name: "repository",
+        description: "GitHub repository name",
+        type: 3,
+        required: true,
+      },
+      {
+        name: "keyword",
+        description: "Keyword to search for in issues",
         type: 3,
         required: true,
       },
