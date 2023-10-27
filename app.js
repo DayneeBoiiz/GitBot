@@ -113,6 +113,18 @@ const tempCommands = [
     ],
   },
   {
+    name: "activity",
+    description: "Displays a user's recent GitHub activity",
+    options: [
+      {
+        name: "username",
+        description: "Github username",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+  {
     name: "apistatus",
     description: "Checks the status of the GitHub API",
   },
