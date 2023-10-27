@@ -89,6 +89,34 @@ const tempCommands = [
     ],
   },
   {
+    name: "commits",
+    description: "Shows recent commits in a GitHub repository",
+    options: [
+      {
+        name: "repository",
+        description: "GitHub repository name",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "userbio",
+    description: "Shows the bio of a GitHub user",
+    options: [
+      {
+        name: "username",
+        description: "Github username",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "apistatus",
+    description: "Checks the status of the GitHub API",
+  },
+  {
     name: "help",
     description: "Displays a comprehensive list of available commands",
   },
