@@ -125,6 +125,18 @@ const tempCommands = [
     ],
   },
   {
+    name: "wikilink",
+    description: "Generates a link to the GitHub wiki of a repository",
+    options: [
+      {
+        name: "repository",
+        description: "GitHub repository name",
+        type: 3,
+        required: true,
+      },
+    ],
+  },
+  {
     name: "apistatus",
     description: "Checks the status of the GitHub API",
   },
